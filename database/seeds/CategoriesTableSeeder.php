@@ -30,11 +30,13 @@ class CategoriesTableSeeder extends Seeder
             '19~20インチ', 'デスクトップPC','タブレット'
         ];
 
+        //nameとdescriptionは１対多の多の方のデータを設定。
+        //major_category_nameは１対多の多の方のデータを設定するようになっている。
         foreach ($major_category_names as $major_category_name){
             if ($major_category_name == '本') {
                 foreach($book_categories as $book_category){
                     Category::create([
-                        'name' => $book_category,
+                        'name' => $book_category, 
                         'description' => $book_category,
                         'major_category_name' => $major_category_name
                      ]);
