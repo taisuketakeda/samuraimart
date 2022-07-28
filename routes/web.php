@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('products', 'ProductController');
 
-Auth::routes(['verify' => true]);
+Route::post('products/{product}/reviews', 'ReviewController@store');
+
+Route::resource('products', 'ProductController');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
